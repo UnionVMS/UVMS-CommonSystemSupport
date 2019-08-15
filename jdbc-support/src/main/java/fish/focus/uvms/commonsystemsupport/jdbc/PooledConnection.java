@@ -2,11 +2,7 @@ package fish.focus.uvms.commonsystemsupport.jdbc;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import javax.sql.DataSource;
 
 public class PooledConnection {
@@ -88,6 +84,16 @@ public class PooledConnection {
     /**
      * @param stmt
      */
+    public static void close(Statement stmt) {
+        if (stmt != null) {
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                // don't care
+            }
+        }
+    }
+
     public static void close(PreparedStatement stmt) {
         if (stmt != null) {
             try {
