@@ -1,0 +1,9 @@
+*.iml
+target
+logging.properties
+changelog/
+.idea/
+.settings/
+*.project
+.DS_Store
+.Rhistory
